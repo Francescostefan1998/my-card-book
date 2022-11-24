@@ -8,4 +8,9 @@ const MyBadge = (prop) => (
 )
 
 export default MyBadge
-  
+  /*fetch("https://striveschool-api.herokuapp.com/api/put-your-endpoint-here/", {
+headers: {
+"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzdmNWNmYWQ4MzkzNTAwMTVlOGM0YTUiLCJpYXQiOjE2NjkyOTEyNTksImV4cCI6MTY3MDUwMDg1OX0.R9fOcNdfbqF-E06umapRM0bFhO6l1qqyZMtvrBY5C4I"
+}
+})
+*/

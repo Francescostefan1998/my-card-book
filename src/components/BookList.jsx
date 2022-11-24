@@ -13,7 +13,7 @@ class BookList extends Component{
         
         {fantasy.map((book) => (
             
-        <MyBook bookid={book} />
+        <MyBook bookid={book} key={book.asin}/>
 ) )}
     </Container>)
 

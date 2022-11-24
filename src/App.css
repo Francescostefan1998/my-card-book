@@ -13,6 +13,18 @@
   margin-inline: auto;
   justify-content: center;
 }
+.ul-listt{
+  z-index: 2;
+  background-color: bisque;
+  font-size: 10px;
+  list-style: none;
+  text-align: start;
+  padding-left: 0;
+}
+.hover-this:hover{
+  scale: 1.2;
+  z-index: 2;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
