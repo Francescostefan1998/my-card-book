@@ -21,6 +21,9 @@
   text-align: start;
   padding-left: 0;
 }
+.custom-spinner-color{
+  color: #094454;
+}
 .hover-this:hover{
   scale: 1.2;
   z-index: 2;

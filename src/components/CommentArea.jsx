@@ -47,7 +47,7 @@ class CommentArea extends Component {
         <ul className="ul-listt">
           {this.state.selecteddate.map((m) => (
             <li key={m._id}>
-              <b>{m.author}:</b> - -{m.comment}- -rate- -{m.rate}
+              <b>{m.author}:</b> - -{m.comment}- -rate- -{m.rate}{" "}
             </li>
           ))}
         </ul>
