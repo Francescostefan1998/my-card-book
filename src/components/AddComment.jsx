@@ -46,6 +46,7 @@ class AddComment extends Component {
             comment: "",
             rate: "",
             author: "",
+            elementId: this.props.elementid,
           },
         });
       } else {

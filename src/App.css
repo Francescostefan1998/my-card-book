@@ -13,6 +13,10 @@
   margin-inline: auto;
   justify-content: center;
 }
+#fixed{
+  position: sticky;
+  top: 20px;
+}
 .ul-listt{
   z-index: 2;
   background-color: bisque;
@@ -20,10 +24,16 @@
   list-style: none;
   text-align: start;
   padding-left: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 .custom-spinner-color{
   color: #094454;
 }
+#scroll{
+  height: 80vh;
+  overflow: scroll;
+   }
 .hover-this:hover{
   scale: 1.2;
   z-index: 2;

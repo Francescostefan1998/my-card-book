@@ -38,28 +38,28 @@ class MyBook extends Component {
 
   render() {
     return (
-      <div className="col-6 col-md-4 col-lg-3 mt-3 hover-this">
-        <Card key={this.props.bookid.asin}>
-          <Card.Img variant="top" src={this.props.bookid.img} />
-          <Card.Body>
-            <Card.Title id="wrap">{this.props.bookid.title}</Card.Title>
-            <Card.Text>
-              £{this.props.bookid.price}
-              <br></br>
-              booknumber:{this.props.bookid.asin}
-            </Card.Text>
-            <Button
-              variant="primary"
-              onClick={(e) => this.onselected(e.target)}
-            >
-              Read me
-            </Button>
-          </Card.Body>
-        </Card>
-        {this.state.selectedcard && (
-          <CommentArea elementid={this.props.bookid.asin} />
-        )}
-      </div>
+      <Card key={this.props.book.asin} className="col-4 space">
+        <Card.Img variant="top" src={this.props.book.img} />
+        <Card.Body>
+          <Card.Title id="wrap">{this.props.book.title}</Card.Title>
+          <Card.Text>
+            £{this.props.book.price}
+            <br></br>
+            booknumber:{this.props.book.asin}
+          </Card.Text>
+          <button
+            variant="primary"
+            onClick={(e) =>
+              this.props.changeSelectedMovieTitle(
+                e.target.innerText,
+                this.props.search
+              )
+            }
+          >
+            {this.props.book.asin}
+          </button>
+        </Card.Body>
+      </Card>
     );
   }
 }

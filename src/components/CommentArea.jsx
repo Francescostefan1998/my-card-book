@@ -7,13 +7,13 @@ import AddComment from "./AddComment";
 
 class CommentArea extends Component {
   state = {
-    selectedcard: false,
-    selecteddate: [],
+    selectedMovieObject: [],
+    isLoading: false,
   };
   fetchComment = async () => {
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/comments/${this.props.elementid}`,
+        `https://striveschool-api.herokuapp.com/api/comments/${this.props.selectedMovieTitle}`,
         {
           headers: {
             Authorization:
@@ -22,17 +22,25 @@ class CommentArea extends Component {
         }
       );
       if (response.ok) {
-        let data = await response.json();
+        let data = await response.json(); // this extracts the body from the Response object
+        let chosenMovieInfo = data;
+        console.log("chosen movie info", chosenMovieInfo);
         this.setState({
-          selectedcard: false,
-          selecteddate: data,
+          selectedMovieObject: chosenMovieInfo,
+          isLoading: false,
         });
-        console.log("hello");
+        // ...now render() will fire again!
       } else {
-        console.log("error fetching");
+        console.log("something went wrong :(");
+        this.setState({
+          isLoading: false,
+        });
       }
     } catch (error) {
       console.log(error);
+      this.setState({
+        isLoading: false,
+      });
     }
   };
 
@@ -40,18 +48,28 @@ class CommentArea extends Component {
     console.log("componentDid");
     this.fetchComment();
   }
+  componentDidUpdate = (prevProps, prevState) => {
+    console.log("MOVIECARD HAS BEEN UPDATED!");
+    console.log("prevProps", prevProps);
+    console.log("current props", this.props);
+
+    if (prevProps.selectedMovieTitle !== this.props.selectedMovieTitle) {
+      console.log("NOW IT'S THE TIME TO FETCH THE NEW MOVIE!");
+      this.fetchComment();
+    }
+  };
 
   render() {
     return (
       <div className="ul-listt">
         <ul className="ul-listt">
-          {this.state.selecteddate.map((m) => (
+          {this.state.selectedMovieObject.map((m) => (
             <li key={m._id}>
               <b>{m.author}:</b> - -{m.comment}- -rate- -{m.rate}{" "}
             </li>
           ))}
+          <AddComment elementid={this.props.selectedMovieTitle} />
         </ul>
-        <AddComment elementid={this.props.elementid} />
       </div>
     );
   }
